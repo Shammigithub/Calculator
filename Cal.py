@@ -23,7 +23,7 @@ class Calculator:
         Button(width=11, height=4, text='C', relief='flat', bg='#0066CC', command=self.clear).place(x=5, y=53)
         Button(width=11, height=4, text='/', relief='flat', bg='#CCE5FF', command=lambda: self.show('/')).place(x=95,  y=53)
         Button(width=11, height=4, text='x', relief='flat', bg='#CCE5FF', command=lambda: self.show('*')).place(x=185, y=53)
-        Button(width=11, height=4, text='/', relief='flat', bg='#CCE5FF', command=lambda: self.show('/')).place(x=275, y=53)
+        Button(width=11, height=4, text='d', relief='flat', bg='#CCE5FF', command=self.delete).place(x=275, y=53)
 
         Button(width=11, height=4, text='7', relief='flat', bg='#CCE5FF', command=lambda: self.show('7')).place(x=5, y=128)
         Button(width=11, height=4, text='8', relief='flat', bg='#CCE5FF', command=lambda: self.show('8')).place(x=95, y=128)
@@ -63,6 +63,10 @@ class Calculator:
     def solve(self):
        result = eval(self.entry_value)
        self.equation.set(result)
+
+    def delete(self):
+        self.entry_value = ''
+        self.equation.set(self.entry_value)
 
 root = Tk()
 Calculator = Calculator(root)
